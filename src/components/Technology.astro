@@ -12,8 +12,12 @@ const { name, imagePortrait, imageLandscape, description } =
 
 <article>
   <picture>
-    <source media="(min-width: 1024px" srcset={imagePortrait} sizes="515px" />
-    <img alt={name} src={imageLandscape} />
+    <source
+      media="(min-width: 1024px"
+      srcset={`.${imagePortrait}`}
+      sizes="515px"
+    />
+    <img src={`.${imageLandscape}`} alt={name} />
   </picture>
   <h2>The terminology</h2>
   <h1>{name}</h1>
