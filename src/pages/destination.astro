@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Destination from '../components/Destination.astro';
+
+import data from '../data/data.json';
+const destinationData = data.destinations;
+---
+
+<Layout title="Destination">
+  <h1>Pick your destination</h1>
+
+  {
+    destinationData.map((destination) => (
+      <Destination
+        name={destination.name}
+        imagePng={destination.images.png}
+        imageWebp={destination.images.webp}
+        description={destination.description}
+        distance={destination.distance}
+        travel={destination.travel}
+      />
+    ))
+  }
+</Layout>

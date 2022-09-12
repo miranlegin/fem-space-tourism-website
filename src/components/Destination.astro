@@ -1,0 +1,24 @@
+---
+export interface Props {
+  name: string;
+  imagePng: string;
+  imageWebp: string;
+  description: string;
+  distance: string;
+  travel: string;
+}
+
+const { name, imagePng, imageWebp, description, distance, travel } =
+  Astro.props as Props;
+---
+
+<article>
+  <picture>
+    <source type="image/webp" srcset={imageWebp} />
+    <img src={imagePng} alt={name} />
+  </picture>
+  <h1>{name}</h1>
+  <p>{description}</p>
+  <dl><dt>AVG. DISTANCE</dt><dd>{distance}</dd></dl>
+  <dl><dt>Est. travel time</dt><dd>{travel}</dd></dl>
+</article>

@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Crew from '../components/Crew.astro';
+
+import data from '../data/data.json';
+const crewData = data.crew;
+---
+
+<Layout title="Crew">
+  <h1>Meet your crew</h1>
+
+  {
+    crewData.map((crew) => (
+      <Crew
+        name={crew.name}
+        imagePng={crew.images.png}
+        imageWebp={crew.images.webp}
+        role={crew.role}
+        bio={crew.bio}
+      />
+    ))
+  }
+</Layout>

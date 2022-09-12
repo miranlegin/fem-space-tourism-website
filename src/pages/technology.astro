@@ -1,0 +1,22 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Technology from '../components/Technology.astro';
+
+import data from '../data/data.json';
+const technologyData = data.technology;
+---
+
+<Layout title="Technology">
+  <h1>Space launch 101</h1>
+
+  {
+    technologyData.map((technology) => (
+      <Technology
+        name={technology.name}
+        imagePortrait={technology.images.portrait}
+        imageLandscape={technology.images.landscape}
+        description={technology.description}
+      />
+    ))
+  }
+</Layout>

@@ -1,0 +1,21 @@
+---
+export interface Props {
+  name: string;
+  imagePortrait: string;
+  imageLandscape: string;
+  description: string;
+}
+
+const { name, imagePortrait, imageLandscape, description } =
+  Astro.props as Props;
+---
+
+<article>
+  <picture>
+    <source media="(min-width: 1024px" srcset={imagePortrait} sizes="515px" />
+    <img alt={name} src={imageLandscape} />
+  </picture>
+  <h2>The terminology</h2>
+  <h1>{name}</h1>
+  <p>{description}</p>
+</article>

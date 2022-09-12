@@ -1,0 +1,21 @@
+---
+export interface Props {
+  name: string;
+  imagePng: string;
+  imageWebp: string;
+  role: string;
+  bio: string;
+}
+
+const { name, imagePng, imageWebp, role, bio } = Astro.props as Props;
+---
+
+<article>
+  <picture>
+    <source type="image/webp" srcset={imageWebp} />
+    <img src={imagePng} alt={name} />
+  </picture>
+  <h2>{role}</h2>
+  <h1>{name}</h1>
+  <p>{bio}</p>
+</article>
