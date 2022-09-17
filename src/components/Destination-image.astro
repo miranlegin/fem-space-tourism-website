@@ -1,0 +1,14 @@
+---
+export interface Props {
+  name: string;
+  imagePng: string;
+  imageWebp: string;
+}
+
+const { name, imagePng, imageWebp } = Astro.props as Props;
+---
+
+<picture class="tab-content destination-image" data-tab=`tab-${name}`>
+  <source type="image/webp" srcset={`.${imageWebp}`} />
+  <img src={`.${imagePng}`} alt={name} width="445" height="445" />
+</picture>

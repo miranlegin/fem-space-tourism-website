@@ -1,0 +1,70 @@
+.crew {
+  &-rank {
+    font-weight: 400;
+    font-size: 1rem;
+    font-family: var(--ff-heading);
+    text-transform: uppercase;
+    color: var(--white);
+    opacity: 0.5;
+
+    @media (min-width: $bp-tablet) {
+      font-size: var(--fs-250);
+    }
+
+    @media (min-width: $bp-desktop) {
+      font-size: var(--fs-400);
+    }
+  }
+
+  &-name {
+    font-weight: 400;
+    font-size: var(--fs-250);
+    font-family: var(--ff-heading);
+    text-transform: uppercase;
+    color: var(--white);
+
+    @media (min-width: $bp-tablet) {
+      font-size: var(--fs-500);
+    }
+
+    @media (min-width: $bp-desktop) {
+      font-size: var(--fs-600);
+    }
+  }
+}
+
+.crew-grid {
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: $bp-tablet) {
+    flex-direction: column-reverse;
+  }
+
+  @media (min-width: $bp-desktop) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr auto;
+  }
+}
+
+.crew-content {
+  @media (min-width: $bp-desktop) {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+    align-self: end;
+  }
+}
+
+.crew-nav {
+  background-color: red;
+  height: 10px;
+  margin-block: 2rem;
+}
+
+.crew-media {
+  @media (min-width: $bp-desktop) {
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 2;
+  }
+}

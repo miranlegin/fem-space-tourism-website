@@ -1,0 +1,49 @@
+:root {
+  /*
+          font sizes based on 16px html font
+        */
+  --fs-900: 9.375rem;
+  --fs-800: 6.25rem;
+  --fs-700: 5rem;
+  --fs-600: 3.5rem;
+  --fs-500: 2.5rem;
+  --fs-400: 2rem;
+  --fs-300: 1.75rem;
+  --fs-250: 1.5rem;
+  --fs-200: 1.125rem;
+  --fs-100: 0.9375rem;
+  --fs-50: 0.875rem;
+
+  /*
+          colors
+        */
+
+  --dark: #0c0e18;
+  --accent: hsl(231, 77%, 90%);
+  --light: hsl(0, 0%, 100%);
+
+  /*
+  fonts
+  */
+
+  --ff-body: 'Barlow', sans-serif;
+  --ff-nav: 'Barlow Condensed', sans-serif;
+  --ff-heading: 'Bellefair', serif;
+}
+
+$bp-desktop: 1440px;
+$bp-desktop: 992px;
+$bp-tablet: 768px;
+$bp-mobile: 375px;
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1.64);
+    opacity: 0;
+  }
+}

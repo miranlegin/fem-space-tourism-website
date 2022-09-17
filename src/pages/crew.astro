@@ -1,23 +1,64 @@
 ---
+// main layout
 import Layout from '../layouts/Layout.astro';
-import Crew from '../components/Crew.astro';
 
+// components
+import Crew from '../components/Crew.astro';
+import CrewImage from '../components/Crew-image.astro';
+
+// data
 import data from '../data/data.json';
 const crewData = data.crew;
 ---
 
 <Layout title="Crew">
-  <h1>Meet your crew</h1>
+  <main>
+    <h1 class="page-title" data-prefix="02">Meet your crew</h1>
 
-  {
-    crewData.map((crew) => (
-      <Crew
-        name={crew.name}
-        imagePng={crew.images.png}
-        imageWebp={crew.images.webp}
-        role={crew.role}
-        bio={crew.bio}
-      />
-    ))
-  }
+    <div class="crew-grid">
+      <div class="crew-media">
+        {
+          crewData.map((crew) => (
+            <CrewImage
+              name={crew.name}
+              imagePng={crew.images.png}
+              imageWebp={crew.images.webp}
+            />
+          ))
+        }
+      </div>
+
+      <div class="crew-nav"></div>
+
+      <div class="crew-content">
+        {
+          crewData.map((crew) => (
+            <Crew
+              name={crew.name}
+              imagePng={crew.images.png}
+              imageWebp={crew.images.webp}
+              role={crew.role}
+              bio={crew.bio}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </main>
 </Layout>
+
+<style lang="scss">
+  @import '../styles/_variables.scss';
+
+  body {
+    background-image: url(assets/crew/background-crew-mobile.jpg);
+
+    @media (min-width: $bp-tablet) {
+      background-image: url(assets/crew/background-crew-tablet.jpg);
+    }
+
+    @media (min-width: $bp-desktop) {
+      background-image: url(assets/crew/background-crew-desktop.jpg);
+    }
+  }
+</style>

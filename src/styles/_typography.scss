@@ -1,0 +1,32 @@
+p {
+  font-family: var(--ff-body);
+  font-size: var(--fs-100);
+  color: var(--accent);
+  line-height: 167%;
+
+  @media (min-width: $bp-tablet) {
+    font-size: 1rem;
+  }
+
+  @media (min-width: $bp-desktop) {
+    font-size: var(--fs-200);
+  }
+}
+
+h4 {
+  font-weight: 400;
+  font-family: var(--ff-nav);
+  font-size: 1rem;
+  line-height: 1.1875;
+  letter-spacing: 2.7px;
+
+  color: var(--accent);
+
+  @media (min-width: $bp-tablet) {
+    font-size: 1.25rem;
+  }
+
+  @media (min-width: $bp-desktop) {
+    font-size: var(--fs-300);
+  }
+}

@@ -1,0 +1,17 @@
+---
+export interface Props {
+  name: string;
+}
+
+const { name } = Astro.props as Props;
+---
+
+<button
+  role="tab"
+  aria-selected="false"
+  aria-controls=`panel-${name}`
+  id=`tab-${name}`
+  class="tab-link"
+  tabindex="-1"
+  >{name}
+</button>

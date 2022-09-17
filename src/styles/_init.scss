@@ -1,0 +1,37 @@
+html,
+body {
+  overflow-x: hidden;
+}
+
+body {
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: cover;
+  background-attachment: fixed;
+  background-color: var(--dark);
+  color: var(--light);
+  text-align: center;
+
+  @media (min-width: $bp-desktop) {
+    text-align: left;
+  }
+}
+
+img {
+  max-inline-size: 100%;
+  block-size: auto;
+}
+
+ul {
+  margin: 0;
+  padding-left: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+}

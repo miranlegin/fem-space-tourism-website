@@ -1,8 +1,43 @@
-<nav>
-  <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/destination">Destination</a></li>
-    <li><a href="/crew">Crew</a></li>
-    <li><a href="/technology">Technology</a></li>
-  </ul>
-</nav>
+---
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1); // remove the first "/"
+---
+
+<header>
+  <img class="logo" src="assets/shared/logo.svg" alt="" />
+
+  <button class="toggle-nav">
+    <img src="assets/shared/icon-hamburger.svg" alt="" />
+  </button>
+
+  <nav class="menu">
+    <ul>
+      <li>
+        <a class={currentPath === '' ? 'active' : ''} href="/" data-prefix="00"
+          >Home</a
+        >
+      </li>
+      <li>
+        <a
+          class={currentPath === 'destination' ? 'active' : ''}
+          href="/destination"
+          data-prefix="01">Destination</a
+        >
+      </li>
+      <li>
+        <a
+          class={currentPath === 'crew' ? 'active' : ''}
+          href="/crew"
+          data-prefix="02">Crew</a
+        >
+      </li>
+      <li>
+        <a
+          class={currentPath === 'technology' ? 'active' : ''}
+          href="/technology"
+          data-prefix="03">Technology</a
+        >
+      </li>
+    </ul>
+  </nav>
+</header>

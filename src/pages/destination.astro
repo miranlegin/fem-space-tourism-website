@@ -1,24 +1,160 @@
 ---
+// main layout
 import Layout from '../layouts/Layout.astro';
-import Destination from '../components/Destination.astro';
 
+// components
+import Destination from '../components/Destination.astro';
+import DestinationImage from '../components/Destination-image.astro';
+import Tab from '../components/Tab.astro';
+
+// data
 import data from '../data/data.json';
 const destinationData = data.destinations;
 ---
 
 <Layout title="Destination">
-  <h1>Pick your destination</h1>
+  <main>
+    <h1 class="page-title" data-prefix="01">Pick your destination</h1>
+    <div class="destination-grid">
+      <section class="destination-media">
+        {
+          destinationData.map((destination) => (
+            <DestinationImage
+              name={destination.name}
+              imagePng={destination.images.png}
+              imageWebp={destination.images.webp}
+            />
+          ))
+        }
+      </section>
 
-  {
-    destinationData.map((destination) => (
-      <Destination
-        name={destination.name}
-        imagePng={destination.images.png}
-        imageWebp={destination.images.webp}
-        description={destination.description}
-        distance={destination.distance}
-        travel={destination.travel}
-      />
-    ))
-  }
+      <section class="destination-nav">
+        <div class="tabs">
+          <div role="tablist" aria-label="Destination Tabs">
+            {
+              destinationData.map((destination) => (
+                <Tab name={destination.name} />
+              ))
+            }
+          </div>
+        </div>
+      </section>
+
+      <section class="destination-content">
+        {
+          destinationData.map((destination) => (
+            <Destination
+              name={destination.name}
+              description={destination.description}
+              distance={destination.distance}
+              travel={destination.travel}
+            />
+          ))
+        }
+      </section>
+    </div>
+  </main>
 </Layout>
+
+<style lang="scss">
+  @import '../styles/_variables.scss';
+
+  body {
+    background-image: url(assets/destination/background-destination-mobile.jpg);
+
+    @media (min-width: $bp-tablet) {
+      background-image: url(assets/destination/background-destination-tablet.jpg);
+    }
+
+    @media (min-width: $bp-desktop) {
+      background-image: url(assets/destination/background-destination-desktop.jpg);
+    }
+  }
+</style>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('[role="tab"]');
+    const tabList = document.querySelector('[role="tablist"]');
+
+    if (tabs && tabList) {
+      setInitial(0);
+    }
+
+    // Add a click event handler to each tab
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', changeTabs);
+    });
+
+    // Enable arrow navigation between tabs in the tab list
+    let tabFocus = 0;
+
+    tabList.addEventListener('keydown', (e) => {
+      // Move right
+      if (e.keyCode === 39 || e.keyCode === 37) {
+        tabs[tabFocus].setAttribute('tabindex', -1);
+        if (e.keyCode === 39) {
+          tabFocus++;
+          // If we're at the end, go to the start
+          if (tabFocus >= tabs.length) {
+            tabFocus = 0;
+          }
+          // Move left
+        } else if (e.keyCode === 37) {
+          tabFocus--;
+          // If we're at the start, move to the end
+          if (tabFocus < 0) {
+            tabFocus = tabs.length - 1;
+          }
+        }
+
+        tabs[tabFocus].setAttribute('tabindex', 0);
+        tabs[tabFocus].focus();
+      }
+    });
+  });
+
+  function changeTabs(e) {
+    const target = e.target;
+    const parent = target.parentNode;
+    const panels = document.querySelectorAll('[role="tabpanel"]');
+    const images = document.querySelectorAll('.destination-image');
+
+    // Remove all current selected tabs
+    parent
+      .querySelectorAll('[aria-selected="true"]')
+      .forEach((t) => t.setAttribute('aria-selected', false));
+    images.forEach((image) => image.classList.remove('_selected'));
+
+    // Set this tab as selected
+    target.setAttribute('aria-selected', true);
+
+    // Hide all tab panels
+
+    panels.forEach((p) => p.setAttribute('hidden', true));
+
+    // Show the selected panel
+
+    document
+      .querySelector(`#${target.getAttribute('aria-controls')}`)
+      .removeAttribute('hidden');
+
+    const activeImage = document.querySelector(`[data-tab=${target.id}]`);
+    activeImage.classList.add('_selected');
+  }
+
+  function setInitial(number) {
+    // find first tab and make it active
+    const tabs = document.querySelectorAll('[role="tab"]');
+    tabs[number].setAttribute('tabindex', 0);
+    tabs[number].setAttribute('aria-selected', true);
+
+    // find first panel and make it active
+    const panels = document.querySelectorAll('[role="tabpanel"]');
+    panels[number].removeAttribute('hidden');
+
+    // find first image and make it active
+    const images = document.querySelectorAll('.destination-image');
+    images[number].classList.add('_selected');
+  }
+</script>
