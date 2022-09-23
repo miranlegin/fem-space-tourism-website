@@ -12,39 +12,32 @@ const crewData = data.crew;
 ---
 
 <Layout title="Crew">
-  <main>
-    <h1 class="page-title" data-prefix="02">Meet your crew</h1>
-
-    <div class="crew-grid">
-      <div class="crew-media">
-        {
-          crewData.map((crew) => (
-            <CrewImage
-              name={crew.name}
-              imagePng={crew.images.png}
-              imageWebp={crew.images.webp}
-            />
-          ))
-        }
-      </div>
-
-      <div class="crew-nav"></div>
-
-      <div class="crew-content">
-        {
-          crewData.map((crew) => (
-            <Crew
-              name={crew.name}
-              imagePng={crew.images.png}
-              imageWebp={crew.images.webp}
-              role={crew.role}
-              bio={crew.bio}
-            />
-          ))
-        }
-      </div>
-    </div>
-  </main>
+  <h1 class="page-title" data-prefix="02">Meet your crew</h1>
+  <div class="articles">
+    {
+      crewData.map((crew) => (
+        <Crew
+          name={crew.name}
+          imagePng={crew.images.png}
+          imageWebp={crew.images.webp}
+          role={crew.role}
+          bio={crew.bio}
+        />
+      ))
+    }
+    <div class="crew-nav"></div>
+  </div>
+  <div class="images">
+    {
+      crewData.map((crew) => (
+        <CrewImage
+          name={crew.name}
+          imagePng={crew.images.png}
+          imageWebp={crew.images.webp}
+        />
+      ))
+    }
+  </div>
 </Layout>
 
 <style lang="scss">

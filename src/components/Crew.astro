@@ -1,13 +1,11 @@
 ---
 export interface Props {
   name: string;
-  imagePng: string;
-  imageWebp: string;
   role: string;
   bio: string;
 }
 
-const { name, imagePng, imageWebp, role, bio } = Astro.props as Props;
+const { name, role, bio } = Astro.props as Props;
 ---
 
 <article>

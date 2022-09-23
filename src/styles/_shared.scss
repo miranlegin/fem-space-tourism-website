@@ -1,41 +1,26 @@
-header {
-  position: relative;
-  z-index: 100;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-
-  @media (max-width: #{$bp-tablet - 1}) {
-    padding: 1.5rem;
-  }
-
-  @media (min-width: $bp-tablet) {
-    margin-bottom: var(--fs-500);
-  }
-
-  @media (min-width: $bp-desktop) {
-    margin-bottom: 4.75rem;
-    padding-top: var(--fs-400);
-    padding-left: 1rem;
-  }
-}
-
 .logo {
   @media (min-width: $bp-tablet) {
-    margin-left: var(--fs-500);
-  }
-
-  @media (min-width: $bp-desktop) {
     position: absolute;
+    top: 1.5rem;
   }
 }
 
 .toggle-nav {
-  position: relative;
+  position: fixed;
+  right: 1.5rem;
   z-index: 200;
   background-color: transparent;
   border: 0;
+  padding: 0;
+  width: 3rem;
+  aspect-ratio: 1;
+
+  img {
+    margin-inline: auto;
+  }
+
+  ._hamburgerOpen & {
+  }
 
   @media (min-width: $bp-tablet) {
     display: none;
@@ -43,57 +28,38 @@ header {
 }
 
 .menu {
+  position: relative;
+  margin-left: auto;
   text-align: left;
 
-  outline: 1px solid lime;
-
-  @media (max-width: #{$bp-tablet - 1}) {
+  @media (max-width: $until-tablet) {
     position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
     width: Min(67%, 16rem);
     padding-top: 7rem;
+    padding-inline: 2rem;
     transform: translateX(100%);
     transition: 0.25s ease-out;
+    background: rgba(#fff, 0.04);
+    backdrop-filter: blur(2.5rem);
 
     ._hamburgerOpen & {
       transform: none;
     }
   }
 
-  @media (min-width: $bp-desktop) {
-    display: flex;
-    justify-content: flex-end;
-    width: Min(calc(100% - 3rem), 90vw, 1110px);
-    margin-inline: auto;
+  @media (min-width: $bp-tablet) {
+    max-width: 50%;
   }
 
   ul {
-    position: relative;
     list-style: none;
-    padding-inline: var(--fs-400);
     @media (min-width: $bp-tablet) {
       display: flex;
-      text-align: right;
-      column-gap: 2.25rem;
-      padding-inline: 3rem;
-    }
-
-    &::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      width: 100vw;
-      background: rgba(255, 255, 255, 0.04);
-      backdrop-filter: blur(81.5485px);
-      top: -100vh;
-      bottom: -100vh;
-
-      @media (min-width: $bp-tablet) {
-        top: 0;
-        bottom: 0;
-      }
+      justify-content: space-between;
+      column-gap: 1rem;
     }
   }
 
@@ -104,28 +70,29 @@ header {
     line-height: 1;
     letter-spacing: 2.7px;
     text-transform: uppercase;
-
-    @media (max-width: #{$bp-tablet - 1}) {
-      & + li {
-        margin-top: var(--fs-400);
-      }
-    }
   }
 
   a {
     position: relative;
-    display: block;
+    display: inline-block;
     color: var(--light);
     text-decoration: none;
+    padding-block: 1rem;
 
     @media (min-width: $bp-tablet) {
       padding-block: 2.5rem;
+      padding-inline: 0;
     }
 
     &.active {
       &::after {
         transform: none;
         opacity: 1;
+
+        @media (max-width: $until-tablet) {
+          top: 50%;
+          height: 2px;
+        }
       }
     }
 
@@ -144,7 +111,7 @@ header {
       font-weight: 700;
       margin-right: var(--fs-50);
 
-      @media (min-width: $bp-tablet) and (max-width: #{$bp-desktop - 1}) {
+      @media (min-width: $bp-tablet) and (max-width: $until-desktop) {
         display: none;
       }
     }
@@ -163,22 +130,40 @@ header {
   }
 }
 
-main {
-  margin-inline: auto;
-  // width: Min(1110px, calc(100% - 3rem));
+.page-title {
+  font-weight: 400;
+  font-size: 1rem;
+  font-family: var(--ff-nav);
+  text-transform: uppercase;
+  letter-spacing: 2.7px;
+  line-height: 1.1875;
+  color: var(--light);
+  margin-bottom: 1rem;
 
-  width: Min(calc(100% - 3rem), 90vw, 1110px);
+  // span across grid x axes
+  grid-column: 1 / -1;
 
-  // @media (min-width: $bp-tablet) {
-  //   padding-inline: 6.25rem;
-  // }
+  @media (min-width: $bp-tablet) {
+    font-size: 20px;
+    letter-spacing: 3.375px;
+    text-align: left;
+  }
 
-  // @media (min-width: $bp-desktop) {
-  //   padding-inline: 10rem;
-  // }
+  @media (min-width: $bp-desktop) {
+    font-size: var(--fs-300);
+    letter-spacing: 4.725px;
+    margin-bottom: 4rem;
+  }
+
+  &::before {
+    content: attr(data-prefix);
+    font-weight: 700;
+    margin-right: 1.5rem;
+    opacity: 0.25;
+  }
 }
 
-.page-title {
+.intro-title {
   font-weight: 400;
   font-size: 1rem;
   font-family: var(--ff-nav);
@@ -198,12 +183,5 @@ main {
     font-size: var(--fs-300);
     letter-spacing: 4.725px;
     margin-bottom: 4rem;
-  }
-
-  &::before {
-    content: attr(data-prefix);
-    font-weight: 700;
-    margin-right: 1.5rem;
-    opacity: 0.25;
   }
 }

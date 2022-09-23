@@ -31,10 +31,16 @@
   --ff-heading: 'Bellefair', serif;
 }
 
-$bp-desktop: 1440px;
-$bp-desktop: 992px;
-$bp-tablet: 768px;
-$bp-mobile: 375px;
+// 1px value in ems
+$pixel: 0.0625em;
+
+// 768px and 992px
+$bp-tablet: 48em;
+$bp-desktop: 62em;
+
+// up until breakpoint
+$until-tablet: #{$bp-tablet - $pixel};
+$until-desktop: #{$bp-desktop - $pixel};
 
 @keyframes pulse {
   0% {

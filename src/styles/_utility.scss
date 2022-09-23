@@ -9,3 +9,24 @@
 .pr-10 {
   padding-right: 10rem;
 }
+
+// TESTING
+
+article:not(:first-of-type),
+picture:not(:first-of-type) {
+  display: none;
+}
+
+// picture {
+//   animation: float 10s ease-in-out infinite;
+// }
+
+// @keyframes float {
+//   0%,
+//   100% {
+//     transform: translateY(0px);
+//   }
+//   50% {
+//     transform: translateY(1rem);
+//   }
+// }

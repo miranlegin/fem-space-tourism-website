@@ -1,24 +1,13 @@
 ---
 export interface Props {
   name: string;
-  imagePortrait: string;
-  imageLandscape: string;
   description: string;
 }
 
-const { name, imagePortrait, imageLandscape, description } =
-  Astro.props as Props;
+const { name, description } = Astro.props as Props;
 ---
 
 <article>
-  <picture>
-    <source
-      media="(min-width: 64em)"
-      srcset={`.${imagePortrait} 515w`}
-      sizes="(min-width: 64em) 35.76vw"
-    />
-    <img src={`.${imageLandscape}`} alt={name} />
-  </picture>
   <h3 class="technology-label">The terminology…</h3>
   <h2 class="technology-title">{name}</h2>
   <p>{description}</p>

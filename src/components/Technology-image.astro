@@ -1,0 +1,18 @@
+---
+export interface Props {
+  name: string;
+  imagePortrait: string;
+  imageLandscape: string;
+}
+
+const { name, imagePortrait, imageLandscape } = Astro.props as Props;
+---
+
+<picture>
+  <source
+    media="(min-width: 64em)"
+    srcset={`.${imagePortrait} 515w`}
+    sizes="(min-width: 64em) 35.76vw"
+  />
+  <img src={`.${imageLandscape}`} alt={name} />
+</picture>

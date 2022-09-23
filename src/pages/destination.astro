@@ -13,47 +13,35 @@ const destinationData = data.destinations;
 ---
 
 <Layout title="Destination">
-  <main>
-    <h1 class="page-title" data-prefix="01">Pick your destination</h1>
-    <div class="destination-grid">
-      <section class="destination-media">
-        {
-          destinationData.map((destination) => (
-            <DestinationImage
-              name={destination.name}
-              imagePng={destination.images.png}
-              imageWebp={destination.images.webp}
-            />
-          ))
-        }
-      </section>
-
-      <section class="destination-nav">
-        <div class="tabs">
-          <div role="tablist" aria-label="Destination Tabs">
-            {
-              destinationData.map((destination) => (
-                <Tab name={destination.name} />
-              ))
-            }
-          </div>
-        </div>
-      </section>
-
-      <section class="destination-content">
-        {
-          destinationData.map((destination) => (
-            <Destination
-              name={destination.name}
-              description={destination.description}
-              distance={destination.distance}
-              travel={destination.travel}
-            />
-          ))
-        }
-      </section>
+  <h1 class="page-title" data-prefix="01">Pick your destination</h1>
+  <div class="images">
+    {
+      destinationData.map((destination) => (
+        <DestinationImage
+          name={destination.name}
+          imagePng={destination.images.png}
+          imageWebp={destination.images.webp}
+        />
+      ))
+    }
+  </div>
+  <div class="articles">
+    <div class="tabs">
+      <div role="tablist" aria-label="Destination Tabs">
+        {destinationData.map((destination) => <Tab name={destination.name} />)}
+      </div>
     </div>
-  </main>
+    {
+      destinationData.map((destination) => (
+        <Destination
+          name={destination.name}
+          description={destination.description}
+          distance={destination.distance}
+          travel={destination.travel}
+        />
+      ))
+    }
+  </div>
 </Layout>
 
 <style lang="scss">

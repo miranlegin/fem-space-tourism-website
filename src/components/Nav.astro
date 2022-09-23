@@ -3,8 +3,10 @@ const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1); // remove the first "/"
 ---
 
-<header>
-  <img class="logo" src="assets/shared/logo.svg" alt="" />
+<header class="header">
+  <a href="/">
+    <img class="logo" src="assets/shared/logo.svg" alt="" />
+  </a>
 
   <button class="toggle-nav">
     <img src="assets/shared/icon-hamburger.svg" alt="" />

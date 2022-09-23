@@ -1,26 +1,41 @@
 ---
+// main layout
 import Layout from '../layouts/Layout.astro';
-import Technology from '../components/Technology.astro';
 
+// components
+import Technology from '../components/Technology.astro';
+import TechnologyImage from '../components/Technology-image.astro';
+
+// data
 import data from '../data/data.json';
 const technologyData = data.technology;
 ---
 
 <Layout title="Technology">
-  <main>
-    <h1 class="page-title" data-prefix="03">Space launch 101</h1>
+  <h1 class="page-title" data-prefix="03">Space launch 101</h1>
 
+  <div class="articles">
     {
       technologyData.map((technology) => (
         <Technology
           name={technology.name}
-          imagePortrait={technology.images.portrait}
-          imageLandscape={technology.images.landscape}
           description={technology.description}
         />
       ))
     }
-  </main>
+  </div>
+
+  <div class="images">
+    {
+      technologyData.map((technology) => (
+        <TechnologyImage
+          name={technology.name}
+          imagePortrait={technology.images.portrait}
+          imageLandscape={technology.images.landscape}
+        />
+      ))
+    }
+  </div>
 </Layout>
 
 <style lang="scss">

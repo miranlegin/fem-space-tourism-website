@@ -2,170 +2,176 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout>
-  <div class="destination-grid">
-    <!-- Slider main container -->
-
-    <div class="destination-content">
-      <div class="swiper-content">
-        <!-- Additional required wrapper -->
-        <div class="swiper-wrapper">
-          <!-- Slides -->
-          <div class="swiper-slide">
-            <article
-              id="panel-Moon"
-              role="tabpanel"
-              tabindex="0"
-              aria-labelledby="tab-Moon"
-              class="tab-content"
-            >
-              <h2 class="destination-title">Moon</h2>
-              <p class="destination-description">
-                See our planet as you’ve never seen it before. A perfect
-                relaxing trip away to help regain perspective and come back
-                refreshed. While you’re there, take in some history by visiting
-                the Luna 2 and Apollo 11 landing sites.
-              </p>
-              <div class="destination-stats">
-                <dl>
-                  <dt class="destination-label">AVG. DISTANCE</dt><dd
-                    class="destination-value"
-                  >
-                    384,400 km
-                  </dd>
-                </dl>
-                <dl>
-                  <dt class="destination-label">Est. travel time</dt><dd
-                    class="destination-value"
-                  >
-                    3 days
-                  </dd>
-                </dl>
-              </div>
-            </article>
-          </div>
-          <div class="swiper-slide">
-            <article
-              id="panel-Mars"
-              role="tabpanel"
-              tabindex="0"
-              aria-labelledby="tab-Mars"
-              class="tab-content"
-            >
-              <h2 class="destination-title">Mars</h2>
-              <p class="destination-description">
-                Don’t forget to pack your hiking boots. You’ll need them to
-                tackle Olympus Mons, the tallest planetary mountain in our solar
-                system. It’s two and a half times the size of Everest!
-              </p>
-              <div class="destination-stats">
-                <dl>
-                  <dt class="destination-label">AVG. DISTANCE</dt><dd
-                    class="destination-value"
-                  >
-                    225 mil. km
-                  </dd>
-                </dl>
-                <dl>
-                  <dt class="destination-label">Est. travel time</dt><dd
-                    class="destination-value"
-                  >
-                    9 months
-                  </dd>
-                </dl>
-              </div>
-            </article>
-          </div>
-          <div class="swiper-slide">
-            <article
-              id="panel-Europa"
-              role="tabpanel"
-              tabindex="0"
-              aria-labelledby="tab-Europa"
-              class="tab-content"
-            >
-              <h2 class="destination-title">Europa</h2>
-              <p class="destination-description">
-                The smallest of the four Galilean moons orbiting Jupiter, Europa
-                is a winter lover’s dream. With an icy surface, it’s perfect for
-                a bit of ice skating, curling, hockey, or simple relaxation in
-                your snug wintery cabin.
-              </p>
-              <div class="destination-stats">
-                <dl>
-                  <dt class="destination-label">AVG. DISTANCE</dt><dd
-                    class="destination-value"
-                  >
-                    628 mil. km
-                  </dd>
-                </dl>
-                <dl>
-                  <dt class="destination-label">Est. travel time</dt><dd
-                    class="destination-value"
-                  >
-                    3 years
-                  </dd>
-                </dl>
-              </div>
-            </article>
-          </div>
+<Layout title="Example Swiper.js">
+  <div class="grid-left">
+    <div class="swiper-images">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <picture class="tab-content" data-tab="tab-Moon">
+            <source
+              type="image/webp"
+              srcset="../assets/destination/image-moon.webp"
+            />
+            <img
+              src="../assets/destination/image-moon.png"
+              alt="Moon"
+              width="445"
+              height="445"
+            />
+          </picture>
+        </div>
+        <div class="swiper-slide">
+          <picture class="tab-content" data-tab="tab-Mars">
+            <source
+              type="image/webp"
+              srcset="../assets/destination/image-mars.webp"
+            />
+            <img
+              src="../assets/destination/image-mars.png"
+              alt="Mars"
+              width="445"
+              height="445"
+            />
+          </picture>
+        </div>
+        <div class="swiper-slide">
+          <picture class="tab-content" data-tab="tab-Europa">
+            <source
+              type="image/webp"
+              srcset="../assets/destination/image-europa.webp"
+            />
+            <img
+              src="../assets/destination/image-europa.png"
+              alt="Europa"
+              width="445"
+              height="445"
+            />
+          </picture>
         </div>
       </div>
     </div>
+  </div>
+  <div class="grid-right">
+    <div class="swiper-pagination"></div>
 
-    <div class="destination-nav">
-      <div class="swiper-pagination"></div>
-    </div>
-    <div class="destination-media">
-      <div class="swiper-images">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <picture class="tab-content" data-tab="tab-Moon">
-              <source
-                type="image/webp"
-                srcset="../assets/destination/image-moon.webp"
-              />
-              <img
-                src="../assets/destination/image-moon.png"
-                alt="Moon"
-                width="445"
-                height="445"
-              />
-            </picture>
-          </div>
-          <div class="swiper-slide">
-            <picture class="tab-content" data-tab="tab-Mars">
-              <source
-                type="image/webp"
-                srcset="../assets/destination/image-mars.webp"
-              />
-              <img
-                src="../assets/destination/image-mars.png"
-                alt="Mars"
-                width="445"
-                height="445"
-              />
-            </picture>
-          </div>
-          <div class="swiper-slide">
-            <picture class="tab-content" data-tab="tab-Europa">
-              <source
-                type="image/webp"
-                srcset="../assets/destination/image-europa.webp"
-              />
-              <img
-                src="../assets/destination/image-europa.png"
-                alt="Europa"
-                width="445"
-                height="445"
-              />
-            </picture>
-          </div>
+    <div class="swiper-content">
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide">
+          <article
+            id="panel-Moon"
+            role="tabpanel"
+            tabindex="0"
+            aria-labelledby="tab-Moon"
+            class="tab-content"
+          >
+            <h2 class="destination-title">Moon</h2>
+            <p class="destination-description">
+              See our planet as you’ve never seen it before. A perfect relaxing
+              trip away to help regain perspective and come back refreshed.
+              While you’re there, take in some history by visiting the Luna 2
+              and Apollo 11 landing sites.
+            </p>
+            <div class="destination-stats">
+              <dl>
+                <dt class="destination-label">AVG. DISTANCE</dt><dd
+                  class="destination-value"
+                >
+                  384,400 km
+                </dd>
+              </dl>
+              <dl>
+                <dt class="destination-label">Est. travel time</dt><dd
+                  class="destination-value"
+                >
+                  3 days
+                </dd>
+              </dl>
+            </div>
+          </article>
+        </div>
+        <div class="swiper-slide">
+          <article
+            id="panel-Mars"
+            role="tabpanel"
+            tabindex="0"
+            aria-labelledby="tab-Mars"
+            class="tab-content"
+          >
+            <h2 class="destination-title">Mars</h2>
+            <p class="destination-description">
+              Don’t forget to pack your hiking boots. You’ll need them to tackle
+              Olympus Mons, the tallest planetary mountain in our solar system.
+              It’s two and a half times the size of Everest!
+            </p>
+            <div class="destination-stats">
+              <dl>
+                <dt class="destination-label">AVG. DISTANCE</dt><dd
+                  class="destination-value"
+                >
+                  225 mil. km
+                </dd>
+              </dl>
+              <dl>
+                <dt class="destination-label">Est. travel time</dt><dd
+                  class="destination-value"
+                >
+                  9 months
+                </dd>
+              </dl>
+            </div>
+          </article>
+        </div>
+        <div class="swiper-slide">
+          <article
+            id="panel-Europa"
+            role="tabpanel"
+            tabindex="0"
+            aria-labelledby="tab-Europa"
+            class="tab-content"
+          >
+            <h2 class="destination-title">Europa</h2>
+            <p class="destination-description">
+              The smallest of the four Galilean moons orbiting Jupiter, Europa
+              is a winter lover’s dream. With an icy surface, it’s perfect for a
+              bit of ice skating, curling, hockey, or simple relaxation in your
+              snug wintery cabin.
+            </p>
+            <div class="destination-stats">
+              <dl>
+                <dt class="destination-label">AVG. DISTANCE</dt><dd
+                  class="destination-value"
+                >
+                  628 mil. km
+                </dd>
+              </dl>
+              <dl>
+                <dt class="destination-label">Est. travel time</dt><dd
+                  class="destination-value"
+                >
+                  3 years
+                </dd>
+              </dl>
+            </div>
+          </article>
         </div>
       </div>
     </div>
   </div>
 </Layout>
+
+<style is:global>
+  .swiper-pagination {
+    position: relative;
+  }
+
+  .swiper-pagination-bullet {
+    width: 24px !important;
+    aspect-ratio: 1;
+    height: auto;
+    background: #fff;
+  }
+</style>
 
 <script>
   // import Swiper bundle with all modules installed

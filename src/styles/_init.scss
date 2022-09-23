@@ -11,6 +11,7 @@ body {
   background-color: var(--dark);
   color: var(--light);
   text-align: center;
+  padding-inline: clamp(1.5rem, 5.5vw, 2.5rem);
 
   @media (min-width: $bp-desktop) {
     text-align: left;
