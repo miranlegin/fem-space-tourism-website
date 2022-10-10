@@ -14,12 +14,13 @@
 }
 
 .btn-explore {
+  grid-column: 7 / -1;
+  justify-self: end;
+
   position: relative;
   display: flex;
   align-items: center;
   place-content: center;
-
-  margin-inline: auto;
 
   font-weight: 400;
   font-size: 1.25rem;

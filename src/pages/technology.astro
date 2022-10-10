@@ -15,6 +15,7 @@ const technologyData = data.technology;
   <h1 class="page-title" data-prefix="03">Space launch 101</h1>
 
   <div class="articles">
+    <div class="navbar"></div>
     {
       technologyData.map((technology) => (
         <Technology
@@ -51,5 +52,15 @@ const technologyData = data.technology;
     @media (min-width: $bp-desktop) {
       background-image: url(assets/technology/background-technology-desktop.jpg);
     }
+  }
+
+  .articles {
+    grid-column: 1 / span 7;
+    display: flex;
+    column-gap: 5rem;
+  }
+
+  .images {
+    grid-column: 9 / -1;
   }
 </style>

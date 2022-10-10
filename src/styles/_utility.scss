@@ -12,9 +12,16 @@
 
 // TESTING
 
-article:not(:first-of-type),
-picture:not(:first-of-type) {
-  display: none;
+// article:not(:first-of-type),
+// picture:not(:first-of-type) {
+//   display: none;
+// }
+
+.navbar {
+  flex-shrink: 0;
+  width: 5rem;
+  height: 300px;
+  background-color: red;
 }
 
 // picture {

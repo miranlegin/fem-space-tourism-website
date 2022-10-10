@@ -12,7 +12,13 @@ const { name, imagePortrait, imageLandscape } = Astro.props as Props;
   <source
     media="(min-width: 64em)"
     srcset={`.${imagePortrait} 515w`}
-    sizes="(min-width: 64em) 35.76vw"
+    sizes="(min-width: 64em) 515px"
   />
   <img src={`.${imageLandscape}`} alt={name} />
 </picture>
+
+<style>
+  img {
+    max-width: fit-content;
+  }
+</style>

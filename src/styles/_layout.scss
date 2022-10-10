@@ -12,8 +12,10 @@
   @media (min-width: $bp-desktop) {
     display: grid;
     // 22.5rem = 360px, 35rem = 560px
-    grid-template-columns: repeat(2, minmax(22.5rem, 35rem));
+    // grid-template-columns: repeat(2, minmax(22.5rem, 35rem));
+    grid-template-columns: repeat(12, 1fr);
     grid-template-rows: min-content 1fr;
+    column-gap: 30px;
   }
 }
 
